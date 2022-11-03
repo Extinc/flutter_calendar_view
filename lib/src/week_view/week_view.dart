@@ -155,10 +155,10 @@ class WeekView<T extends Object?> extends StatefulWidget {
   final MinuteSlotSize minuteSlotSize;
 
   // Define Safe Area true / false
-  final bool? safeAreaTop;
-  final bool? safeAreaBtm;
-  final bool? safeAreaLeft;
-  final bool? safeAreaRight;
+  final bool? safeAreaTop = false;
+  final bool? safeAreaBtm = false;
+  final bool? safeAreaLeft = false;
+  final bool? safeAreaRight = false;
 
   /// Main widget for week view.
   const WeekView({
@@ -250,11 +250,6 @@ class WeekViewState<T extends Object?> extends State<WeekView<T>> {
 
   final _scrollConfiguration = EventScrollConfiguration();
 
-  late bool _safeAreaTop;
-  late bool _safeAreaBtm;
-  late bool _safeAreaLeft;
-  late bool _safeAreaRight;
-
   @override
   void initState() {
     super.initState();
@@ -344,10 +339,10 @@ class WeekViewState<T extends Object?> extends State<WeekView<T>> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      top: _safeAreaTop,
-      bottom: _safeAreaBtm,
-      left: _safeAreaLeft,
-      right: _safeAreaRight,
+      top: widget.safeAreaTop!,
+      bottom: widget.safeAreaBtm!,
+      left: widget.safeAreaLeft!,
+      right: widget.safeAreaRight!,
       child: SizedBox(
         width: _width,
         child: DecoratedBox(
