@@ -155,7 +155,7 @@ class WeekView<T extends Object?> extends StatefulWidget {
   final MinuteSlotSize minuteSlotSize;
 
   /// Main widget for week view.
-  const WeekView({
+  WeekView({
     Key? key,
     this.controller,
     this.eventTileBuilder,
