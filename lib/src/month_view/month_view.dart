@@ -128,7 +128,7 @@ class MonthView<T extends Object?> extends StatefulWidget {
   final WeekDays startDay;
 
   /// Main [Widget] to display month view.
-  const MonthView({
+  MonthView({
     Key? key,
     this.showBorder = true,
     this.borderColor = Constants.defaultBorderColor,
@@ -152,8 +152,15 @@ class MonthView<T extends Object?> extends StatefulWidget {
     this.headerStringBuilder,
     this.dateStringBuilder,
     this.weekDayStringBuilder,
+    required this.safeAreaTop,
+    required this.safeAreaBtm,
+    required this.safeAreaLeft,
+    required this.safeAreaRight,
   }) : super(key: key);
-
+  bool? safeAreaTop = false;
+  bool? safeAreaBtm = false;
+  bool? safeAreaLeft = false;
+  bool? safeAreaRight = false;
   @override
   MonthViewState<T> createState() => MonthViewState<T>();
 }
@@ -266,6 +273,10 @@ class MonthViewState<T extends Object?> extends State<MonthView<T>> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: widget.safeAreaTop!,
+      bottom: widget.safeAreaBtm!,
+      left: widget.safeAreaLeft!,
+      right: widget.safeAreaRight!,
       child: SizedBox(
         width: _width,
         child: Column(
