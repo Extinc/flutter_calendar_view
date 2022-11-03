@@ -154,12 +154,6 @@ class WeekView<T extends Object?> extends StatefulWidget {
   /// where events are not there.
   final MinuteSlotSize minuteSlotSize;
 
-  // Define Safe Area true / false
-  final bool? safeAreaTop = false;
-  final bool? safeAreaBtm = false;
-  final bool? safeAreaLeft = false;
-  final bool? safeAreaRight = false;
-
   /// Main widget for week view.
   const WeekView({
     Key? key,
@@ -208,7 +202,11 @@ class WeekView<T extends Object?> extends StatefulWidget {
         assert(
             heightPerMinute > 0, "Height per minute must be greater than 0."),
         super(key: key);
-
+  // Define Safe Area true / false
+  bool? safeAreaTop = false;
+  bool? safeAreaBtm = false;
+  bool? safeAreaLeft = false;
+  bool? safeAreaRight = false;
   @override
   WeekViewState<T> createState() => WeekViewState<T>();
 }
