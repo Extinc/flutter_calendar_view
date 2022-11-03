@@ -154,6 +154,12 @@ class WeekView<T extends Object?> extends StatefulWidget {
   /// where events are not there.
   final MinuteSlotSize minuteSlotSize;
 
+  // Define Safe Area true / false
+  final bool? safeAreaTop;
+  final bool? safeAreaBtm;
+  final bool? safeAreaLeft;
+  final bool? safeAreaRight;
+
   /// Main widget for week view.
   const WeekView({
     Key? key,
@@ -189,6 +195,10 @@ class WeekView<T extends Object?> extends StatefulWidget {
     this.timeLineStringBuilder,
     this.weekDayStringBuilder,
     this.weekDayDateStringBuilder,
+    this.safeAreaTop,
+    this.safeAreaBtm,
+    this.safeAreaLeft,
+    this.safeAreaRight,
   })  : assert((timeLineOffset) >= 0,
             "timeLineOffset must be greater than or equal to 0"),
         assert(width == null || width > 0,
@@ -239,6 +249,11 @@ class WeekViewState<T extends Object?> extends State<WeekView<T>> {
   late List<WeekDays> _weekDays;
 
   final _scrollConfiguration = EventScrollConfiguration();
+
+  late bool _safeAreaTop;
+  late bool _safeAreaBtm;
+  late bool _safeAreaLeft;
+  late bool _safeAreaRight;
 
   @override
   void initState() {
@@ -329,6 +344,10 @@ class WeekViewState<T extends Object?> extends State<WeekView<T>> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: _safeAreaTop,
+      bottom: _safeAreaBtm,
+      left: _safeAreaLeft,
+      right: _safeAreaRight,
       child: SizedBox(
         width: _width,
         child: DecoratedBox(
