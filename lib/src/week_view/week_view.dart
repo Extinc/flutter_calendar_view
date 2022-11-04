@@ -354,7 +354,7 @@ class WeekViewState<T extends Object?> extends State<WeekView<T>> {
               _weekHeaderBuilder(_currentStartDate, _currentEndDate),
               Expanded(
                 child: SizedBox(
-                  height: _height,
+                  height: _height * 1.2,
                   width: _width,
                   child: PageView.builder(
                     itemCount: _totalWeeks,
@@ -370,7 +370,7 @@ class WeekViewState<T extends Object?> extends State<WeekView<T>> {
                           builder: (_, __, ___) => InternalWeekViewPage<T>(
                                 key: ValueKey(_hourHeight.toString() +
                                     dates[0].toString()),
-                                height: _height,
+                                height: _height + 80,
                                 width: _width,
                                 weekTitleWidth: _weekTitleWidth,
                                 weekTitleHeight: widget.weekTitleHeight,

@@ -316,14 +316,14 @@ class MonthViewState<T extends Object?> extends State<MonthView<T>> {
                       Expanded(
                         child: SingleChildScrollView(
                           child: SizedBox(
-                            height: _height,
+                            height: _height * 0.8,
                             width: _width,
                             child: _MonthPageBuilder<T>(
                               key: ValueKey(date.toIso8601String()),
                               onCellTap: widget.onCellTap,
                               onDateLongPress: widget.onDateLongPress,
                               width: _width,
-                              height: _height,
+                              height: _height + 20,
                               controller: controller,
                               borderColor: widget.borderColor,
                               borderSize: widget.borderSize,
